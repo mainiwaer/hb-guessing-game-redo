@@ -8,6 +8,16 @@ def get_user_name():
     return input("Howdy, what's your name? > ")
 
 
+def replay_game(name):
+    """Prompts user to play again after completing a round of the game."""
+    replay_prompt = input("Would you like to play again? (y/n) > ").lower()
+    if replay_prompt == "y" or replay_prompt == "yes":
+        guessing_game(name)
+
+    else:
+        print("Bye {name}!")
+
+
 def guessing_game(name):
     """Run game where user guesses a randomly generated number."""
 
@@ -40,16 +50,7 @@ def guessing_game(name):
             elif player_guess < guess_number:
                 print("Your guess is too low, try again")
 
-def replay_game(name):
-    """Prompts user to play again after completing a round of the game."""
-    replay_prompt = input("Would you like to play again? (y/n) > ").lower()
-    if replay_prompt == "y" or replay_prompt == "yes":
-        guessing_game(name)
-
-    else:
-        print("Bye {name}!")
-        break
-
+    replay_game(name)
 
 
 guessing_game(name=get_user_name())
