@@ -21,9 +21,9 @@ def guessing_game(name):
         player_guess = input("Your guess? > ")
 
         if player_guess.isnumeric() is False:
-            print("Invalid guess. Please enter an integer from 1 to 100")
+            print("Invalid guess. Please enter an integer from 1 to 100.")
 
-        elif player_guess < 1 or player_guess >= 100:
+        elif int(player_guess) < 1 or int(player_guess) >= 100:
             print("Please input an integer between 1 and 100.")
 
         else:
@@ -39,6 +39,17 @@ def guessing_game(name):
 
             elif player_guess < guess_number:
                 print("Your guess is too low, try again")
+
+def replay_game(name):
+    """Prompts user to play again after completing a round of the game."""
+    replay_prompt = input("Would you like to play again? (y/n) > ").lower()
+    if replay_prompt == "y" or replay_prompt == "yes":
+        guessing_game(name)
+
+    else:
+        print("Bye {name}!")
+        break
+
 
 
 guessing_game(name=get_user_name())
