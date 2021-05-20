@@ -18,18 +18,27 @@ def guessing_game(name):
     print(f"{name}, I'm thinking of a number between 1 and 100. \nTry to guess my number.")
 
     while True:
-        player_guess = int(input("Your guess? > "))
-        guess_counter += 1
+        player_guess = input("Your guess? > ")
 
-        if player_guess == guess_number:
-            print(f"Congrats {name}! You found my number in {guess_counter} tries!")
-            break
+        if player_guess.isnumeric() is False:
+            print("Invalid guess. Please enter an integer from 1 to 100")
 
-        elif player_guess > guess_number:
-            print("Your guess is too high, try again.")
+        elif player_guess not in range(1, 100):
+            print("Please input an integer between 1 and 100.")
 
-        elif player_guess < guess_number:
-            print("Your guess is too low, try again")
+        else:
+            player_guess = int(player_guess)
+            guess_counter += 1
+
+            if player_guess == guess_number:
+                print(f"Congrats {name}! You found my number in {guess_counter} tries!")
+                break
+
+            elif player_guess > guess_number:
+                print("Your guess is too high, try again.")
+
+            elif player_guess < guess_number:
+                print("Your guess is too low, try again")
 
 
 guessing_game(name=get_user_name())
