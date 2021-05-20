@@ -17,10 +17,16 @@ def guessing_game(name):
     print(f"{name}, I'm thinking of a number between 1 and 100. \n Try to guess my number.")
 
     while True:
-        player_guess = input("Your guess? > ")
+        player_guess = int(input("Your guess? > "))
         guess_counter += 1
 
         if player_guess == guess_number:
             print(f"Congrats {name}! You found my number in {guess_counter} tries!")
             break
+
+        elif player_guess > guess_number:
+            print("Your guess is too high, try again.")
+        
+        elif player_guess < guess_number:
+            print("Your guess is too low, try again")
 
