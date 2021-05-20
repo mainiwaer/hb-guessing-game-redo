@@ -23,7 +23,7 @@ def guessing_game(name):
         if player_guess.isnumeric() is False:
             print("Invalid guess. Please enter an integer from 1 to 100")
 
-        elif player_guess not in range(1, 100):
+        elif player_guess < 1 or player_guess >= 100:
             print("Please input an integer between 1 and 100.")
 
         else:
